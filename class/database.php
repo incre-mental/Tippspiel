@@ -1,5 +1,5 @@
 <?php
-include 'dbconfig.php";
+include "dbconfig.php";
 
 class DB_MySQL {
   private $connection = NULL;
