@@ -32,7 +32,7 @@ class login{
 	private  function login(){
 		$query = 'SELECT * FROM users
 				  WHERE  
-					Name     = \''. mysql_real_escape_string($this->name) .'\' AND
+					Username     = \''. mysql_real_escape_string($this->name) .'\' AND
 					Passwort = \''. mysql_real_escape_string(MD5($this->passwort)) .'\'
 				  LIMIT 1;';
 		
