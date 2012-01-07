@@ -32,7 +32,7 @@ class session
   	
 	private function __clone() {}
 	
-	public function getSID(){
+	public static function getSID(){
 		return self::$sid;
 	}
 	
@@ -41,7 +41,7 @@ class session
 		  self::$sid=$tmp .'-'.md5($tmp.self::$sessionpasswort) ;
 	}
 	
-	public function showLink($mitFragezeichen=false){
+	public static function showLink($mitFragezeichen=false){
 		echo ($mitFragezeichen!==true) ? '' : '?', 'sid=',self::getSID();
 	}
 }

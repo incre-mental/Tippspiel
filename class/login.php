@@ -36,7 +36,7 @@ class login{
 					Passwort = \''. mysql_real_escape_string(MD5($this->passwort)) .'\'
 				  LIMIT 1;';
 		
-		$this->dbconnection->query(&$query);
+		$this->dbconnection->query($query);
 		
 		if($this->dbconnection->count()!==1){
 			return false;
@@ -55,7 +55,7 @@ class login{
 					  	ID =  '. $this->id .' 
 					  LIMIT 1;';
 			
-			$this->dbconnection->query(&$query);			
+			$this->dbconnection->query($query);			
 			
 			return true;
 		}
@@ -68,7 +68,7 @@ class login{
 					Session = \''. mysql_real_escape_string($this->session) .'\' 
 				  LIMIT 1;';
 		
-		$this->dbconnection->query(&$query);
+		$this->dbconnection->query($query);
 		
 		return ($this->dbconnection->count()!==1) ? false : true;
 	}
@@ -107,7 +107,7 @@ class login{
 				  	Session = \''. mysql_real_escape_string($this->session) .'\'
 				  LIMIT 1;';
 		
-		$this->dbconnection->query(&$query);
+		$this->dbconnection->query($query);
 	}
 }
 
