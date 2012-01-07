@@ -36,7 +36,7 @@ class session
 		return self::$sid;
 	}
 	
-	private function erzeugeSID(){
+	private static function erzeugeSID(){
 		  $tmp = md5((string)mt_rand() . $_SERVER['REMOTE_ADDR'] . time());
 		  self::$sid=$tmp .'-'.md5($tmp.self::$sessionpasswort) ;
 	}
