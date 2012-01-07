@@ -1,4 +1,5 @@
 <?php
+include 'dbconfig.php";
 
 class DB_MySQL {
   private $connection = NULL;
@@ -6,10 +7,10 @@ class DB_MySQL {
   private $counter=NULL;
   
   private $dbconfig = array(
-			'server' => 'localhost',
-			'user' => 'root',
-			'password' => '',
-			'database' => 'tippspiel',
+			'server' => DBHOST,
+			'user' => DBUSER,
+			'password' => DBPWD,
+			'database' => DBNAME,
 			);
   
   public function __construct($host=NULL, $database=NULL, $user=NULL, $pass=NULL){
