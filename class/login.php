@@ -43,6 +43,8 @@ class login{
 		} else {
 			$row = $this->dbconnection->fetchRow();
 			$this->email = $row['EMail'];
+			$this->nachname = $row['Nachname'];
+			$this->vorname = $row['Vorname'];
 			$this->id    = $row['ID'];
 			
 			$this->logout();
