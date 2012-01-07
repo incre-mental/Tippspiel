@@ -18,7 +18,7 @@ class session
 		$testSession = preg_split("/-/",self::$sid,-1);
 		$testMD5 = md5($testSession[0].self::$sessionpasswort);
 		
-		if($testMD5 !== $testSession[1]){
+		if(sizeof ($testSession) < 2 || $testMD5 !== $testSession[1]){
 			self::erzeugeSID();
 		}
 	}
