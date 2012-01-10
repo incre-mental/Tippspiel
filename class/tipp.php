@@ -1,10 +1,9 @@
 <?php 
   
+	include_once 'Superclass.php';
 	include_once 'db_tipp.php';
   
-  class Tipp {
-	  private $db        = NULL;
-		private $id        = -1;
+  class Tipp extends Superclass {
 		private $user      = NULL;
 		private $begegnung = NULL;
 		private $tore1     = 0;
@@ -20,15 +19,7 @@
 			$this->user      = NULL;
 			$this->begegnung = NULL;
 		}
-		
-		public function getId () {
-		  return $this->id;
-		}
-		
-		public function setId ($id) {
-		  $this->id = $id;
-		}
-		
+			
 		public function getUser () {
 		  return $this->user;
 		}

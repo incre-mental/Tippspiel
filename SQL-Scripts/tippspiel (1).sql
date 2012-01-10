@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 3.2.4
 -- http://www.phpmyadmin.net
 --
@@ -21,12 +21,24 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 -- --------------------------------------------------------
 
+
+CREATE TABLE IF NOT EXISTS `Phasen` (
+  `ID` int(4) NOT NULL AUTO_INCREMENT,
+  `Parent_id` int(4) NULL,
+  `Name` VARCHAR (64) NOT NULL,
+   PRIMARY KEY (`ID`)
+);
+
+INSERT INTO `Phasen` (`name`) VALUES ('Gruppenphase');
+INSERT INTO `Phasen` (`Parent_id`, `name`) VALUES (1, 'Gruppe A');
+
 --
 -- Tabellenstruktur für Tabelle `Begegnung`
 --
 
 CREATE TABLE IF NOT EXISTS `Begegnung` (
   `ID` int(4) NOT NULL AUTO_INCREMENT,
+  `Phasen_id` int(4) NOT NULL, 
   `Mannschafts_ID_1` int(4) NOT NULL,
   `Mannschafts_ID_2` int(11) NOT NULL,
   `Timestamp` int(11) NOT NULL,
@@ -39,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `Begegnung` (
 -- Daten für Tabelle `Begegnung`
 --
 
-INSERT INTO `Begegnung` (`ID`, `Mannschafts_ID_1`, `Mannschafts_ID_2`, `Timestamp`, `Tore_Mannschaft_1`, `Tore_Mannschaft_2`) VALUES
-(1, 1, 2, 1000000, 3, 0);
+INSERT INTO `Begegnung` (`ID`, `Phasen_id`, `Mannschafts_ID_1`, `Mannschafts_ID_2`, `Timestamp`, `Tore_Mannschaft_1`, `Tore_Mannschaft_2`) VALUES
+(1, 2, 1, 2, 1000000, 3, 0);
 
 -- --------------------------------------------------------
 

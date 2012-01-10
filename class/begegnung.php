@@ -1,14 +1,13 @@
 <?php 
+  include_once 'Superclass.php';
   include_once 'db_begegnung.php';
 	
-  class Begegnung {
-	  private $id          = -1;
+  class Begegnung extends Superclass {
 		private $mannschaft1 = NULL;
 		private $mannschaft2 = NULL;
 		private $timestamp   = NULL;
 		private $tore1       = 0;
 		private $tore2       = 0;
-		private $db          = NULL;
 		
 		public function __construct () {
 		  $this->db = new DB_Begegnung ();
@@ -23,15 +22,7 @@
 		public function get () {
 		  return $this->db->get ();
 		}
-		
-		public function getId () {
-		  return $this->id;
-		}
-		
-		public function setId ($id) {
-		  $this->id = $id;
-		}
-		
+				
 		public function getMannschaft1 () {
 		  return $this->mannschaft1;
 		}

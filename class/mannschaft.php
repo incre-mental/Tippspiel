@@ -1,10 +1,9 @@
 <?php
+  include_once 'Superclass.php';
   include_once 'DB_Mannschaft.php';
 
-  class Mannschaft {
-	  private $id   = -1;
+  class Mannschaft extends Superclass{
 		private $name = "";
-	  private $db   = NULL;
 	
 	  public function __construct () {
 		  $this->db = new DB_Mannschaft ();
@@ -16,14 +15,6 @@
 		
 		public function get () {
 		  return $this->db->get ();
-		}
-		
-		public function getId () {
-		  return $this->id;
-		}
-		
-		public function setId ($id) {
-		  $this->id = $id;
 		}
 		
 		public function getName () {
