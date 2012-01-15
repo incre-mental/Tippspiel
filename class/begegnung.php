@@ -19,8 +19,8 @@
       $this->db          = NULL;			
 		}	
 		
-		public function get () {
-		  return $this->db->get ();
+		public function get ($phase) {
+		  return $this->db->get ($phase);
 		}
 				
 		public function getMannschaft1 () {
@@ -61,6 +61,14 @@
 		
 		public function setTore2 ($tore) {
 		  $this->tore2 = $tore;
+		}
+		
+		public function getTipp () {
+		  return $this->tipp;
+		}
+		
+		public function setTipp (&$tipp) {
+		  $this->tipp = $tipp;
 		}
 	}
 ?>

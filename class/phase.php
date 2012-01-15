@@ -36,7 +36,20 @@
 		}
 		
 		public function get () {
-		  return $this->db->get ();
+		  if ($this->id < 0)
+				return $this->db->get ();
+			else {
+			  $id = $this->id;
+				
+				$this->db->get ($this);
+				
+				if ($id != $this->id) {
+				  $this->childs = NULL;
+					$this->id     = $id;
+					$this->setParent (NULL);
+				  $this->db->getCurrent ($this);
+				}
+			}
 		}
 	}
 

@@ -4,14 +4,15 @@
 	include_once 'db_tipp.php';
   
   class Tipp extends Superclass {
-		private $user      = NULL;
+		private $userId    = 0;
 		private $begegnung = NULL;
 		private $tore1     = 0;
 		private $tore2     = 0;
 		private $punkte    = 0;
 	
 	  public function __construct () {
-		  $this->db = new DB_Tipp ();
+		  $this->db     = new DB_Tipp ();
+			$this->userId = 1;
 		}
 		
 		public function __destruct () {
@@ -20,19 +21,19 @@
 			$this->begegnung = NULL;
 		}
 			
-		public function getUser () {
-		  return $this->user;
+		public function getUserId () {
+		  return $this->userId;
 		}
 		
-		public function setUser ($user) {
-		  $this->user = $user;
+		public function setUserId ($userId) {
+		  $this->userId = $userId;
 		}
 		
 		public function getBegegnung () {
 		  return $this->begegnung;
 		}
 		
-		public function setBegegnung ($begegnung) {
+		public function setBegegnung (&$begegnung) {
 		  $this->begegnung = $begegnung;
 		}
 		
@@ -59,6 +60,28 @@
 		public function setPunkte ($punkte) {
 		  $this->punkte = $punkte;
 		}
-	  
+		
+		public function save () {
+		  if ($this->id < 0)  
+			  $this->db->getId ($this);
+			
+			if ($this->id < 0)
+			  $this->db->insert ($this);
+			else 
+				$this->db->update ($this);		
+		}
+		
+		public function get () {
+		  $this->db->get ($this);
+		}
+		
+		public function getTipps (&$begegnungen) {
+		  foreach ($begegnungen As &$begegnung) {
+				$tipp = new Tipp ();
+				$tipp->setBegegnung ($begegnung);
+				$tipp->get ();
+				$begegnung->setTipp ($tipp);
+			}
+		}
 	}
 ?>

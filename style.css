@@ -1,0 +1,18 @@
+.GruppenMenu {
+  width:10em;
+	border-width:1px;
+	border-style:solid;
+	float:left;
+	cursor:pointer;
+	height:100%;
+}
+
+.GruppenMenuEintrag {
+  height:3em;
+	padding-left:2px;
+}
+
+.GruppenMenuUntereintrag {
+  height:3em;
+	padding-left:10px;
+}

@@ -13,13 +13,17 @@ class DB_MySQL {
 			'database' => DBNAME,
 			);
   
-  public function __construct($host=NULL, $database=NULL, $user=NULL, $pass=NULL){
-	$this->connection = mysql_connect($this->dbconfig['server'],
+  public function __construct(){
+	  $this->connect (); 
+  }
+	
+	private function connect () {
+	  $this->connection = mysql_connect($this->dbconfig['server'],
                                       $this->dbconfig['user'],
                                       $this->dbconfig['password'],
                                       TRUE);	
   	mysql_select_db($this->dbconfig['database'], $this->connection);
-  }
+	}
  
   public function disconnect() {
     if (is_resource($this->connection===true))
@@ -41,7 +45,11 @@ class DB_MySQL {
   		$this->counter=mysql_num_rows($this->result);
   	}
  
-	return $this->counter;
+	  return $this->counter;
+  }
+	
+	public function __wakeup() {
+    $this->connect ();  
   }
 }
 
