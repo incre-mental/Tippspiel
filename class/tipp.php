@@ -33,7 +33,7 @@
 		  return $this->begegnung;
 		}
 		
-		public function setBegegnung (&$begegnung) {
+		public function setBegegnung ($begegnung) {
 		  $this->begegnung = $begegnung;
 		}
 		
@@ -72,7 +72,7 @@
 		}
 		
 		public function get () {
-		  $this->db->get ($this);
+		  return $this->db->get ($this);
 		}
 		
 		public function getTipps (&$begegnungen) {
@@ -82,6 +82,14 @@
 				$tipp->get ();
 				$begegnung->setTipp ($tipp);
 			}
+		}
+		
+		public function copy (&$tipp) {
+		  $tipp->setUserId    ($this->getUserId ());
+		  $tipp->setBegegnung ($this->getBegegnung ());
+		  $tipp->setTore1     ($this->getTore1 ());
+		  $tipp->setTore2     ($this->getTore2 ());
+		  $tipp->setPunkte    ($this->getPunkte ());
 		}
 	}
 ?>

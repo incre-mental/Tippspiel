@@ -37,20 +37,34 @@
 		}
 		
 		public function get (&$tipp) {
-		  $sql = 'SELECT * FROM tipp ' . $this->getWhereClause ($tipp);
-			      
+		  $return = Array ();
+		  $sql    = 'SELECT * FROM tipp ' . $this->getWhereClause ($tipp);
+
 			$this->query ($sql);  
 			
-			if ($row = $this->fetchRow ()) {	
-        $this->setMember ($tipp, $row);			
+			while ($row = $this->fetchRow ()) {	
+			  $newTipp = new Tipp ();
+        $this->setMember ($newTipp, $row);
+				$newTipp->copy ($tipp);
+
+        $return [] = $newTipp;				
 			}
+			
+			return $return;
 		}
 		
 		private function getWhereClause (&$tipp) {
-		  $sql = 'WHERE user_id = ' . $tipp->getUserId () . ' ';
+		  $sql = "";
+			
+		  if ($tipp->getUserId () > 0)
+		    $sql = 'WHERE user_id = ' . $tipp->getUserId () . ' ';
 						 
-			if ($tipp->getBegegnung () != NULL)
-			  $sql = $sql . 'AND begegnung_id = ' . $tipp->getBegegnung ()->getId ();
+			if ($tipp->getBegegnung () != NULL) {
+			  if (strlen($sql) == 0)
+				  $sql = 'WHERE begegnung_id = ' . $tipp->getBegegnung ()->getId ();
+				else
+			    $sql = $sql . 'AND begegnung_id = ' . $tipp->getBegegnung ()->getId ();
+			}
 		
 		  return $sql;
 		}
