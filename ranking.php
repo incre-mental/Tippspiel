@@ -7,9 +7,7 @@ echo "Hier";
 $rank = new DB_Ranking();
 echo "<pre>";
 $rank->userrank();
-$rank->query("Truncate Table tmp_rank");
 $table = rand(1,100);
-
 foreach ($rank->getIds() as $u) {
 	$rank->aufbauranking($u, $table, 2);
 	//$userrangliste[$u."ID"] = $u;
