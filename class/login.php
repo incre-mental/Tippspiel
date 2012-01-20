@@ -20,7 +20,7 @@ class login{
 			
 			 $this->name = $_POST['username'];
 			 $this->passwort = $_POST['userpass'];
-			 $this->login();
+			 $this->f_login();
 			 return true;
 		}
 		
@@ -29,7 +29,7 @@ class login{
 		}
 	}
 	
-	private  function login(){
+	private  function f_login(){
 		$query = 'SELECT * FROM users
 				  WHERE  
 					Username     = \''. mysql_real_escape_string($this->name) .'\' AND
@@ -43,8 +43,6 @@ class login{
 		} else {
 			$row = $this->dbconnection->fetchRow();
 			$this->email = $row['EMail'];
-			$this->nachname = $row['Nachname'];
-			$this->vorname = $row['Vorname'];
 			$this->id    = $row['ID'];
 			
 			$this->logout();
@@ -77,8 +75,23 @@ class login{
 	
 	public function showLogin(){
 		echo '		
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tippspiel AG</title>
+</head>
+<style type="text/css">
+.head-bar { background-color:#E5E5E5; height:70px ; text-align:right}
+.signup { margin:28px 0 0 0; float:right;font-weight:bold }
+a { color: #15C }
+</style>
+<body>
+<div class= "head-bar"</div>
+<a id="register-login" href="register.php">Neues Konto erstellen</a>
+
 <form method="post" action="">
-<fieldset style="width:300px;text-align:right;position:absolute; left:20%; top:20%;">
+<fieldset style="width:300px;text-align:right;left:20%;margin-top: 90px;margin-left: 50px;">
  <legend>Benutzeranmeldung</legend>
 	<br />
     <label for="textinput1">Benutzername</label>
@@ -87,11 +100,12 @@ class login{
     <label>Passwort</label>
     <input type="password" name="userpass" id="textinput2">
     <br /><br />
-  <button name="login" type="submit">Anmelden</button> 
+  <button name="login" type="submit">Anmelden</button>
 
 </fieldset>
 </form>
-			
+</body>	
+</html>
 ';
 	}
 	
