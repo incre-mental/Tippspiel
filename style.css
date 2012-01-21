@@ -2,6 +2,7 @@
   width:10em;
 	border-width:1px;
 	border-style:solid;
+	border-radius:10px;
 	float:left;
 	cursor:pointer;
 	height:100%;
@@ -15,4 +16,14 @@
 .GruppenMenuUntereintrag {
   height:3em;
 	padding-left:10px;
+	display:none;
+}
+
+.tipp1{
+  width:3em;
+	text-align:right;
+}
+
+.tipp2{
+  width:3em;
 }

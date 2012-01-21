@@ -30,8 +30,8 @@ try
 {
     $client = new SoapClient($location, $options);
     $params = new stdClass;
-    $params->MatchID = 626;
-    $response = $client->GetMatchByMatchID($params);
+    $params->leagueShortcut = em12;
+    $response = $client->GetTeamsByLeagueSaison($params,"LeagueSeason = 2012");
 }
 catch (SoapFault $e)
 {
@@ -42,8 +42,8 @@ catch (Exception $e)
     die($e->getCode() . ': ' . $e->getMessage());
 }
 echo "<pre>";
-print_r($response->GetMatchByMatchIDResult);
+print_r($response);
 echo "</pre>";
 
-echo '<img src="'.$response->GetMatchByMatchIDResult->iconUrlTeam1.'"> '.$response->GetMatchByMatchIDResult->pointsTeam1.' : '.$response->GetMatchByMatchIDResult->pointsTeam2.' <img src="'.$response->GetMatchByMatchIDResult->iconUrlTeam2.'">';
+//echo '<img src="'.$response->GetMatchByMatchIDResult->iconUrlTeam1.'"> '.$response->GetMatchByMatchIDResult->pointsTeam1.' : '.$response->GetMatchByMatchIDResult->pointsTeam2.' <img src="'.$response->GetMatchByMatchIDResult->iconUrlTeam2.'">';
 
