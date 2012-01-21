@@ -21,12 +21,17 @@
 		public function aufbauranking ($user, $table, $phase="") {
 			
 			
-		  	$sql = 'Select Punkte from tipp where User_ID = '.$user;	
+		  	$sql = 'Select sum(Punkte) from tipp where User_ID = '.$user;	
 		  	
 
-		  	if ($phase!=="")  $sql= 'SELECT Punkte FROM `tipp` WHERE Begegnung_ID in (SELECT ID FROM `begegnung` WHERE Phasen_ID = '.$phase.') AND User_ID = '.$user;
+		  	if ($phase!=="")  $sql= 'SELECT sum(Punkte) FROM `tipp` WHERE Begegnung_ID in (SELECT ID FROM `begegnung` WHERE Phasen_ID = '.$phase.') AND User_ID = '.$user;
+		  	echo $sql;
 			$this->query ($sql);
 			//echo $sql;
+			
+			$row = $this->fetchRow();
+			return $row["Punkte"];
+			/*
 		  	$punkte = 0;
 		  	$sql="";
 		  	while ($row = $this->fetchRow ()) {
@@ -42,7 +47,7 @@
 		  					   'VALUES (' . $user . ', ' . $punkte . '); ';
 		  
 		  	
-		  	$this->query($sql);
+		  	$this->query($sql);*/
 		}
 
 		public function ausgaberanking($table) {
