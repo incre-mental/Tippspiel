@@ -1,6 +1,8 @@
 <?php
 #include_once 'class/dbconfig.php';
 
+
+echo rtrim(dirname(htmlspecialchars($_SERVER["PHP_SELF"])), "/\\");
 class registration{
 
 	private $vname = NULL;
@@ -13,8 +15,10 @@ class registration{
 	private $dbconnection = NULL;
 	private $host = NULL;
 	private $uri = NULL;
+
 	
 	
+
 	public function __construct($sessionid){
 		$mysqli = new mysqli(DBHOST, DBUSER, DBPWD, DBNAME);
 		if ($mysqli->connect_error){
