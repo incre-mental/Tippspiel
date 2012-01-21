@@ -10,9 +10,18 @@
     <body>
     <?php
 		if (isset($_GET["fehler"]) && $_GET["fehler"]==1){
-			echo "<p class='fehler'> Registrierungsdaten nicht korrekt</p>";
+			echo "<p class='fehler'> Registrierungsdaten nicht korrekt!!</p>";
 		}elseif(isset($_GET["fehler"]) && $_GET["fehler"]==2){
 			echo "<p class='fehler'> Benutzername schon vergeben!!</p>";
+		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==3){
+			echo "<p class='fehler'> Passwort zu kurz!!<br/>
+					Das Passwort muss mindestens 6 Zeichen lang sein!!</p>";
+		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==4){
+			echo "<p class='fehler'> E-Mail Account schon vorhanden!!</p>";
+		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==5){
+			echo "<p class='fehler'> Passwort Wiederholung stimmt nicht mit dem Passwort Ÿberein!!</p>";
+		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==6){
+				echo "<p class='fehler'> Fehler bei der Registrierung!!</p>";
 		}
 	?>
 	<form method="post" action="regaction.php">
