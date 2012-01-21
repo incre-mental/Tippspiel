@@ -12,8 +12,8 @@
 	  if ($begegnung->getTimestamp () > $current_timestamp) {
 			$tipp = $begegnung->getTipp ();
 			
-			$tipp1 = trim ($_POST [$begegnung->getId () . '1']);
-			$tipp2 = trim ($_POST [$begegnung->getId () . '2']);
+			$tipp1 = strip_tags (trim ($_POST [$begegnung->getId () . '1']));
+			$tipp2 = strip_tags (trim ($_POST [$begegnung->getId () . '2']));
 			
 			if (strlen ($tipp1) == 0)
 			  $tipp1 = 0;
@@ -38,6 +38,7 @@
 					
 				$tipp->setTore1 ($tipp1);
 				$tipp->setTore2 ($tipp2);
+				$tipp->setBegegnung ($begegnung);
 				$tipp->save ();
 			}
 		}

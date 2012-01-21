@@ -4,19 +4,21 @@
 	border-style:solid;
 	border-radius:10px;
 	float:left;
-	cursor:pointer;
 	height:100%;
+	margin-right:10px;
 }
 
 .GruppenMenuEintrag {
   height:3em;
 	padding-left:2px;
+	cursor:pointer;
 }
 
 .GruppenMenuUntereintrag {
   height:3em;
 	padding-left:10px;
 	display:none;
+	cursor:pointer;
 }
 
 .tipp1{

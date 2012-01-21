@@ -1,5 +1,7 @@
 <?php
 
+include_once 'class/dbconfig.php';
+
 class registration{
 
 	private $vname = NULL;
@@ -13,10 +15,9 @@ class registration{
 	private $host = NULL;
 	private $uri = NULL;
 	
-	#include_once 'dbconfig.php';
 	
 	public function __construct($sessionid){
-		$mysqli = new mysqli("localhost", "root", "xamp101261", "tippspiel");
+		$mysqli = new mysqli(DBHOST, DBUSER, DBPWD, DBNAME);
 		if ($mysqli->connect_error){
 			echo "Fehler bei der Verbindung: ".mysqli_connect_error();
 			exit();
@@ -44,7 +45,7 @@ class registration{
  			 	#echo "User Angaben gültig";
  			 	if (!$this->check_bname()){
  			 		#echo "User kann angemeldet werden<br/>";
- 			 		$mysqli = new mysqli("localhost", "root", "xamp101261", "tippspiel");
+ 			 		$mysqli = new mysqli(DBHOST, DBUSER, DBPWD, DBNAME);
  			 		$insert = "INSERT INTO users
  			 					(Username, Passwort, Vorname, Nachname, Email)
  			 					VALUES ('$this->bname', 
@@ -75,7 +76,7 @@ class registration{
 	}	
 	public  function check_bname(){
 		#echo "<br/>bname:".$this->bname."<br/>";
-		$mysqli = new mysqli("localhost", "root", "xamp101261", "tippspiel");
+		$mysqli = new mysqli(DBHOST, DBUSER, DBPWD, DBNAME);
 		$ergebnis = $mysqli->query("SELECT count(*) FROM users WHERE Username = '". mysql_real_escape_string($this->bname) ."' LIMIT 1;");		
 		$zeile = $ergebnis->fetch_array();
 		#print_r($zeile);
