@@ -1,6 +1,5 @@
 <?php
-
-include_once 'class/dbconfig.php';
+#include_once 'class/dbconfig.php';
 
 class registration{
 
@@ -40,9 +39,9 @@ class registration{
  				$this->bname = htmlspecialchars(trim($_POST['bname']));
  			 	$this->vname = htmlspecialchars(trim($_POST['vorname']));
  			 	$this->nname = htmlspecialchars(trim($_POST['nachname']));
- 			 	$this->passwort = htmlspecialchars(trim($_POST['passwort']));
+ 			 	$this->passwort = MD5($_POST['passwort']);
  			 	$this->email = htmlspecialchars(trim($_POST['email']));
- 			 	#echo "User Angaben gÃ¼ltig";
+ 			 	#echo "User Angaben gŸltig";
  			 	if (!$this->check_bname()){
  			 		#echo "User kann angemeldet werden<br/>";
  			 		$mysqli = new mysqli(DBHOST, DBUSER, DBPWD, DBNAME);
@@ -67,12 +66,12 @@ class registration{
  			 		#file_get_contents("http://localhost/Tippspiel/Tippspiel/register.php?f=2");
  			 	}
  			}else{ 
- 				echo "User kann nicht angemeldet werden<br/>";
+ 				#echo "User kann nicht angemeldet werden<br/>";
  				header("location: register.php?fehler=1");
  				
  		}
  		$mysqli->close();
- 		echo "verbindung closed!!";
+ 		#echo "verbindung closed!!";
 	}	
 	public  function check_bname(){
 		#echo "<br/>bname:".$this->bname."<br/>";
