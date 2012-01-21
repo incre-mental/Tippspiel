@@ -2,6 +2,8 @@
 
 include_once 'class/dbconfig.php';
 
+
+echo rtrim(dirname(htmlspecialchars($_SERVER["PHP_SELF"])), "/\\");
 class registration{
 
 	private $vname = NULL;
@@ -14,8 +16,10 @@ class registration{
 	private $dbconnection = NULL;
 	private $host = NULL;
 	private $uri = NULL;
+
 	
 	
+
 	public function __construct($sessionid){
 		$mysqli = new mysqli(DBHOST, DBUSER, DBPWD, DBNAME);
 		if ($mysqli->connect_error){
@@ -42,7 +46,7 @@ class registration{
  			 	$this->nname = htmlspecialchars(trim($_POST['nachname']));
  			 	$this->passwort = htmlspecialchars(trim($_POST['passwort']));
  			 	$this->email = htmlspecialchars(trim($_POST['email']));
- 			 	#echo "User Angaben gÃ¼ltig";
+ 			 	#echo "User Angaben gŸltig";
  			 	if (!$this->check_bname()){
  			 		#echo "User kann angemeldet werden<br/>";
  			 		$mysqli = new mysqli(DBHOST, DBUSER, DBPWD, DBNAME);
