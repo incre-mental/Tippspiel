@@ -4,14 +4,35 @@ class session
 {
 	private static $instance = NULL;
 	private static $sid = NULL;
+	#AB
+	private static $login = NULL;
+	private static $username = NULL;
+	private static $userpass = NULL;
+	#/AB
 	private static $sessionpasswort='';
 	
 	private  function __construct(){
 		if (isset($_GET['sid'])===true){
 			self::$sid=$_GET['sid'];
+			#AB
+			if (isset($_POST['passwort'])){
+				self::$login=true;
+				self::$username=$_POST['username'];
+				#echo self::$username;
+				self::$userpass=$_POST['userpass'];
+			}
+			#/AB
 		} else {
 			if (isset($_POST['sid'])===true){
 				self::$sid=$_POST['sid'];
+				#AB
+				if (isset($_POST['passwort'])){
+				self::$login=true;
+				self::$username=$_POST['username'];
+				#echo self::$username;
+				self::$userpass=$_POST['userpass'];
+				}
+				#/AB
 			}
 		}
 								
@@ -35,6 +56,12 @@ class session
 	public static function getSID(){
 		return self::$sid;
 	}
+	
+	#AB
+	public static function getUserName(){
+		return self::$username;
+	}
+	#AB
 	
 	private static function erzeugeSID(){
 		  $tmp = md5((string)mt_rand() . $_SERVER['REMOTE_ADDR'] . time());

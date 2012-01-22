@@ -52,7 +52,7 @@ class registration{
  			 						 		   VALUES ('$this->bname', '$this->passwort', '$this->session', '$this->vorname', '$this->nachname', '$this->email');";
  			 						#echo $insert."<br/>";
  			 						if ($ergebnis = $mysqli->query($insert)){
- 			 							header("Location: willkommen.php");
+ 			 							header("Location: willkommen.php?sid={$this->session}&username={$this->bname}");
  			 						}else{
  			 							#echo "Fehlerhaftes INSERT!! User kann nicht angemeldet werden<br/>";
  			 							#echo $mysqli->error();

@@ -6,6 +6,7 @@
 <?php
  include_once 'logintemplate.php';
 ?>
+<h1>Willkommen <?php echo $mylogin->getUserName();?>!</h1>
 <h2>Index Seite</h2>
 Die geheime Index-Seite.<br />
 <br />
