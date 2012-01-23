@@ -2,7 +2,7 @@
   include_once 'class/phase.php';
 	include_once 'smarty_config.php';
 	
-	session_start ();
+	//session_start ();
 	
 	if (isset ($_SESSION ['phasenmenu'])) {
 		$phasen = unserialize ($_SESSION ['phasenmenu']);

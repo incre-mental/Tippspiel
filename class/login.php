@@ -1,5 +1,7 @@
 <?php
 
+session_start ();
+
 class login{
 
 	private $id = NULL;
@@ -55,7 +57,8 @@ class login{
 					  	ID =  '. $this->id .' 
 					  LIMIT 1;';
 			
-			$this->dbconnection->query($query);			
+			$this->dbconnection->query($query);	
+      $_SESSION['userid'] = $this->id;			
 			
 			return true;
 		}
@@ -124,6 +127,8 @@ a { color: #15C }
 				  LIMIT 1;';
 		
 		$this->dbconnection->query($query);
+		
+		$_SESSION['userid'] = 0;
 	}
 }
 

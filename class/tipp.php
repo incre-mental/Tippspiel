@@ -1,18 +1,22 @@
 <?php 
-  
 	include_once 'Superclass.php';
 	include_once 'db_tipp.php';
+	include_once 'login.php';
   
   class Tipp extends Superclass {
-		private $userId    = 0;
+		private $userId    = -1;
 		private $begegnung = NULL;
-		private $tore1     = 0;
-		private $tore2     = 0;
+		private $tore1     = -1;
+		private $tore2     = -1;
 		private $punkte    = 0;
 	
 	  public function __construct () {
 		  $this->db     = new DB_Tipp ();
-			$this->userId = 1;
+			
+			if (isset ($_SESSION['userid']))
+			  $this->userId = $_SESSION['userid'];
+			else
+			  $this->userId = 0;
 		}
 		
 		public function __destruct () {
@@ -37,16 +41,22 @@
 		  $this->begegnung = $begegnung;
 		}
 		
-		public function getTore1 () {
-		  return $this->tore1;
+		public function getTore1 ($show = true) {
+		  if ($this->tore1 >= 0 || !$show)
+				return $this->tore1;
+			else 
+			  return "";
 		}
 		
 		public function setTore1 ($tore) {
 		  $this->tore1 = $tore;
 		}
 		
-		public function getTore2 () {
-		  return $this->tore2;
+		public function getTore2 ($show = true) {
+		  if ($this->tore2 >= 0 || !$show)
+		    return $this->tore2;
+			else
+			  return "";
 		}
 		
 		public function setTore2 ($tore) {
