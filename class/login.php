@@ -19,7 +19,6 @@ class login{
 		if (isset($_POST['login'])===true && 
             isset($_POST['username'])===true && 
             isset($_POST['userpass'])===true){
-			
 			 $this->name = $_POST['username'];
 			 $this->passwort = $_POST['userpass'];
 			 $this->f_login();
@@ -129,6 +128,10 @@ a { color: #15C }
 		$this->dbconnection->query($query);
 		
 		$_SESSION['userid'] = 0;
+	}
+	
+	public function getUserName(){
+		return $this->name;
 	}
 }
 
