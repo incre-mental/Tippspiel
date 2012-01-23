@@ -1,26 +1,26 @@
 <?php 
 
 include_once 'class/rankingclass.php';
-$userrangliste = array();
-echo "Hier";
+include_once 'smarty_config.php';
+
+include_once 'phasenmenu.php';
+
+$begegnung_array = Array ();
+//$tipp  = new Tipp ();
+$phase = new Phase ();
+
+if (!isset ($_GET ['phase_id']))
+$_GET ['phase_id'] = 0;
+
+$phase->setId ($_GET ['phase_id']);
+$phase->get ();
+
+$smarty->assign ('phase', $phase);
+
 
 $rank = new DB_Ranking();
-echo "<pre>";
-$rank->userrank();
-$table = rand(1,100);
-foreach ($rank->getIds() as $u) {
-	$rank->aufbauranking($u, $table, 2);
-	//$userrangliste[$u."ID"] = $u;
-	//$userrangliste[$u."Name"]= $rank->getNames($u);
-	//$userrangliste[$u."Punkte"] = $rank->aufbauranking($u);
-	//array_push($userrangliste,array($u=>($rank->aufbauranking($u))));
-	//print_r($userrangliste);
-}
-$rank->ausgaberanking($table);
-//$rank->ausgabephase(2);
-//print_r($userrangliste);
-//print_r($rank);
-//print_r($rank->getIds());
-//print_r($rank->getNames());
-echo "</pre>";
+$rank->aufbauranking($smarty, $_GET["phase_id"]);
+//$rank->ausgaberanking();
+
+$smarty->display ('ranking.tpl');
 ?>
