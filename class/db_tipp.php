@@ -70,11 +70,19 @@
 		}
 		
 		private function setMember (&$tipp, &$row) {
-      $tipp->setId     ($row ['ID']);
-			$tipp->setUserId ($row ['User_ID']);
-      $tipp->setTore1  ($row ['TippM1']);
-			$tipp->setTore2  ($row ['TippM2']);
-			$tipp->setPunkte ($row ['Punkte']);
+      $tipp->setId ($row ['ID']);
+			
+			if (isset ($row['User_ID']))
+			  $tipp->setUserId ($row ['User_ID']);
+				
+			if (isset ($row['TippM1']))
+        $tipp->setTore1  ($row ['TippM1']);
+			
+			if (isset ($row['TippM2']))
+			  $tipp->setTore2  ($row ['TippM2']);
+			
+			if (isset ($row['Punkte']))
+			  $tipp->setPunkte ($row ['Punkte']);
     }
 	}
 

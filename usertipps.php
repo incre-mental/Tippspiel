@@ -3,6 +3,7 @@
 	include_once 'class/begegnung.php';
 	
 	$tipp = new Tipp ();
+	$currentUser = $tipp->getUserId ();
 	$tipp->setUserId (-1);
 	$begegnung = new Begegnung ();
 	$begegnung->setId ($_GET ['id']);
@@ -11,6 +12,7 @@
 	$tipps = $tipp->get ();
 	
 	foreach ($tipps As $tipp) {
-	  echo "User " . $tipp->getUserId () . " tippt " . $tipp->getTore1() . ":" . $tipp->getTore2 () . "</br>"; 
+	  if ($tipp->getUserId () != $currentUser)
+	    echo "User " . $tipp->getUserId () . " tippt " . $tipp->getTore1() . ":" . $tipp->getTore2 () . ".</br>"; 
 	}
 ?>

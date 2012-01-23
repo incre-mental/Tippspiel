@@ -1,12 +1,20 @@
 $(function() {
-  
+//******************************************************************************
+
+
+//******************************************************************************  
 	$(window).load (function () {
-		var o = $(".GruppenMenuEintrag").next("div");
+	  SetMenuStatus ();
+  });
+//******************************************************************************
+
+
+//******************************************************************************
+	function SetMenuStatus () {
+	  var o = $(".GruppenMenuEintrag").next("div");
 		 
 		while (o.length > 0)
-		{ 			
-			//alert (o.attr ("id"));
-			
+		{ 		
 			if (o.attr ("class").toLowerCase() == "GruppenMenuUntereintrag".toLowerCase())
 			{
 				var reg     = new RegExp ("Gruppenmenu\\-" + o.attr ("id") + "=(\\w+)");
@@ -14,18 +22,22 @@ $(function() {
 				
 				if (display != null)
 					o.css ("display", display[1]);
+				else 
+				  o.css ("display", "block");
 			}
+			else if (o.attr ("class").toLowerCase() == "GruppenMenuEintrag".toLowerCase())
+			  o.css ("display", "block");
 			
 			o = o.next("div");
 		}
-  });
+	}
 //******************************************************************************
 
 
 //******************************************************************************
 	$(".GruppenMenuUntereintrag").click(function()
 	{
-		window.location.href = "tippeingabe.php?phase_id=" + $(this).get(0).id;
+		window.location.href = window.location.pathname + "?phase_id=" + $(this).get(0).id;
 	});
 //******************************************************************************
 
@@ -51,7 +63,7 @@ $(function() {
 			}
 		}
 		else
-		  window.location.href = "tippeingabe.php?phase_id=" + id; 
+		  window.location.href = window.location.pathname + "?phase_id=" + id; 
 	});
 //******************************************************************************
 
@@ -68,7 +80,13 @@ $(function() {
 							 }
 		});
 	});
-	
-	
+//******************************************************************************
+
+
+//******************************************************************************
+  $("input[type=text]").change(function (){
+	  if (!isInt ($(this).attr ("value")))
+	  alert ("ijijh");
+	});
 });
 

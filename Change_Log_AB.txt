@@ -1,0 +1,4 @@
+Change Log:
+
+- Fixed: Strict Standards: Redefining already defined constructor for class login in /Applications/XAMPP/xamppfiles/htdocs/Tippspiel/Tippspiel/class/login.php on line 32
+- Login Screen überarbeitet
