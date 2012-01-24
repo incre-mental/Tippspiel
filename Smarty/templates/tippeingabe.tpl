@@ -12,17 +12,17 @@
 						<td>{$begegnung->getMannschaft1 ()->getName ()}</td>
 						<td>
 						  {if $begegnung->getTimestamp () > time()}
-						    <input type="text" class="tipp1" name="{$begegnung->getId ()}1" value="{$begegnung->getTipp ()->getTore1 ()}"/>
+						    <input type="text" class="tipp1" name="{$begegnung->getId ()}1" value="{$begegnung->getTipp ()->getTore1 ()}" maxlength="2"/>
 							{else}
-							  <input type="text" class="tipp1" name="{$begegnung->getId ()}1" value="{$begegnung->getTipp ()->getTore1 ()} ({$begegnung->getTore1 ()})" disabled="1"/>
+							  <input type="text" class="tipp1" name="{$begegnung->getId ()}1" value="{$begegnung->getTipp ()->getTore1 ()} ({$begegnung->getTore1 ()})" disabled="1" maxlength="2"/>
 							{/if}
 						</td>
 						<td>:</td>
 						<td>
 						  {if $begegnung->getTimestamp () > time()}
-						    <input type="text" class="tipp2" name="{$begegnung->getId ()}2" value="{$begegnung->getTipp ()->getTore2 ()}"/>
+						    <input type="text" class="tipp2" name="{$begegnung->getId ()}2" value="{$begegnung->getTipp ()->getTore2 ()}" maxlength="2"/>
 							{else}
-							  <input type="text" class="tipp2" name="{$begegnung->getId ()}2" value="{$begegnung->getTipp ()->getTore2 ()} ({$begegnung->getTore2 ()})" disabled="1"/>  
+							  <input type="text" class="tipp2" name="{$begegnung->getId ()}2" value="{$begegnung->getTipp ()->getTore2 ()} ({$begegnung->getTore2 ()})" disabled="1" maxlength="2"/>  
 							{/if}
 						</td>
 						<td>{$begegnung->getMannschaft2 ()->getName ()}</td>
