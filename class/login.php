@@ -86,20 +86,20 @@ class login{
 .signup { margin:28px 0 0 0; float:right;font-weight:bold }
 a { color: #15C }
 </style>
-<body>
-<div class= "head-bar"</div>
+<body class="ui-widget">
 
-<ul id="buttonBar" class="ui-reset ui-clearfix ui-component ui-hover-state">
-	<li><a href="#" class="ui-default-state">Home</a></li>
-	<li><a href="#" class="ui-default-state">Tipps</a></li>
-	<li><a href="#" class="ui-default-state">Statistik</a></li>
-	<li><a href="#" class="ui-default-state">Impressum</a></li>
-</ul>
-
-<a id="register-login" href="register.php">Neues Konto erstellen</a>
+   <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+    <div class="ui-dialog-buttonset ab-page-top-div" position="absolute" style="margin-left:33%;margin-right:33%;">
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="index.php">Home</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Tipps</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Statistik</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Impressum</a>
+    </div>
+    </div>
+    <br/>
 
 <form method="post" action="">
-<fieldset style="width:300px;text-align:right;left:20%;margin-top: 90px;margin-left: 50px;">
+<fieldset style="width:33%;text-align:right;left:20%;">
  <legend>Benutzeranmeldung</legend>
 	<br />
     <label for="textinput1">Benutzername</label>
@@ -108,8 +108,8 @@ a { color: #15C }
     <label>Passwort</label>
     <input type="password" name="userpass" id="textinput2">
     <br /><br />
-  <button name="login" type="submit">Anmelden</button>
-
+  	<button name="login" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit"> Anmelden </button><br/>
+	Noch kein Mitglied? <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="register.php">Registrieren</a>
 </fieldset>
 </form>
 </body>	
