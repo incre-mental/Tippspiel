@@ -13,7 +13,7 @@ Die geheime Index-Seite.<br />
 <h3>Navigation</h3>
 <ul>
 	<li><a href="index.php<?php session::showLink(true);?>">Startseite</a></li>
-	<li><a href="verwaltung.php<?php session::showLink(true);?>">Verwaltung</a></li>
+	<li><a href="tippeingabe.php<?php session::showLink(true);?>">Tippeingabe</a></li>
 	<li><?php $mylogin->showLogout();?></li>
 </ul>
 
