@@ -8,8 +8,8 @@
 		  $sql = 'INSERT INTO tipp (begegnung_id, user_id, tippm1, tippm2) ' . 
 					   'VALUES (' . $tipp->getBegegnung()->getId() . ', ' . 
 						 $tipp->getUserId() . ', ' . 
-						 $tipp->getTore1() . ', ' .
-						 $tipp->getTore2() . ')';
+						 $tipp->getTore1(false) . ', ' .
+						 $tipp->getTore2(false) . ')';
 		
 			$this->query ($sql);
 		}
@@ -18,8 +18,8 @@
 		  $sql = 'UPDATE tipp ' .
 			       'SET begegnung_id = ' . $tipp->getBegegnung()->getId() . ', ' . 
 						     'user_id      = ' . $tipp->getUserId()             . ', ' .
-								 'tippm1       = ' . $tipp->getTore1()              . ', ' .
-								 'tippm2       = ' . $tipp->getTore2()              . ', ' .
+								 'tippm1       = ' . $tipp->getTore1(false)              . ', ' .
+								 'tippm2       = ' . $tipp->getTore2(false)              . ', ' .
 								 'punkte       = ' . $tipp->getPunkte ()            . ' '  . 
 						 'WHERE id = ' . $tipp->getId (); 
 						
@@ -56,7 +56,7 @@
 		private function getWhereClause (&$tipp) {
 		  $sql = "";
 			
-		  if ($tipp->getUserId () > 0)
+		  if ($tipp->getUserId () >= 0)
 		    $sql = 'WHERE user_id = ' . $tipp->getUserId () . ' ';
 						 
 			if ($tipp->getBegegnung () != NULL) {

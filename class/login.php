@@ -1,5 +1,7 @@
 <?php
 
+session_start ();
+
 class login{
 
 	private $id = NULL;
@@ -17,6 +19,7 @@ class login{
 		if (isset($_POST['login'])===true && 
             isset($_POST['username'])===true && 
             isset($_POST['userpass'])===true){
+			
 			 $this->name = $_POST['username'];
 			 $this->passwort = $_POST['userpass'];
 			 $this->f_login();
@@ -54,7 +57,8 @@ class login{
 					  	ID =  '. $this->id .' 
 					  LIMIT 1;';
 			
-			$this->dbconnection->query($query);			
+			$this->dbconnection->query($query);	
+      $_SESSION['userid'] = $this->id;			
 			
 			return true;
 		}
@@ -131,10 +135,8 @@ a { color: #15C }
 				  LIMIT 1;';
 		
 		$this->dbconnection->query($query);
-	}
-	
-	public function getUserName(){
-		return $this->name;
+		
+		$_SESSION['userid'] = 0;
 	}
 }
 

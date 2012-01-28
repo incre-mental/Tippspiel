@@ -6,6 +6,7 @@
 	private $ids = array();
 	private $names = array();
 	private $punkte = 0;
+	private $ranking = 0;
   	
 		public function userrank () { //deprecated! wird nicht mehr genutzt 
 		  $sqluser = 'Select ID, Username from users order by ID ASC';
@@ -17,28 +18,30 @@
 					}
 		}
 		
-		public function aufbauranking ($phase="") {
+		public function aufbauranking ($smarty, $phase="") {
 				
 		  	$sql = 'Select users.id, users.username, sum(t.Punkte) from tipp as t inner join users on users.id = t.user_id group by users.id';
 
 		  if ($phase!=="") $sql = '
-		  	Select users.id, users.username, sum(Punkte) from tipp 
-		  	inner join users on users.id = tipp.user_id 
+		  	Select users.id, users.username, sum(t.Punkte) from tipp as t 
+		  	inner join users on users.id = t.user_id 
 		  	WHERE Begegnung_ID in (SELECT ID FROM begegnung WHERE Phasen_ID = '.$phase.') 
 		  	group by users.id, users.username';
 			$this->query ($sql);
-			return $this;
-			
+			$this->ranking = $this;
+			$this->ausgaberanking($smarty);
 		}
 
-		public function ausgaberanking($objekt) 	{			
-			echo "<table>";
-			while ($row = $objekt->fetchRow()) {
-				echo "<tr><td>".$row["username"]."</td><td>".$row["sum(t.Punkte)"]."</td></tr>";
+		
+		
+		public function ausgaberanking($smarty) 	{			
+			//echo "<table>";
+			while ($row = $this->ranking->fetchRow()) {
+				$usernames[] = $row["username"];
+				$punkte[] = $row["sum(t.Punkte)"];
 			}
-			echo "</table>";
-			
-			
+				$smarty->assign ('usernames', $usernames);
+				$smarty->assign ('punkten', $punkte);
 		}
 		
 		

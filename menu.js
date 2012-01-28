@@ -85,8 +85,13 @@ $(function() {
 
 //******************************************************************************
   $("input[type=text]").change(function (){
-	  if (!isInt ($(this).attr ("value")))
-	  alert ("ijijh");
+	  var s = $(this).attr ("value");
+	  var n = parseInt (s);
+		
+	  if ((s != n || n < 0 || n > 999) && s.length != 0)
+	    $(this).css ("background-color", "FF0000");
+		else 
+		  $(this).css ("background-color", "FFFFFF");
 	});
 });
 

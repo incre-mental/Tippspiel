@@ -16,22 +16,16 @@
 			$tipp2 = strip_tags (trim ($_POST [$begegnung->getId () . '2']));
 			
 			if (strlen ($tipp1) == 0)
-			  $tipp1 = 0;
+			  $tipp1 = -1;
 			
 			if (strlen ($tipp2) == 0)
-			  $tipp2 = 0;
+			  $tipp2 = -1;
 				
 			$Save = is_numeric ($tipp1) && is_numeric ($tipp2);
-			
+		
 			if ($Save) {
-				if ($tipp1 < 0)
-					$tipp1 = 0;
-				
 				if ($tipp1 > 999)
 					$tipp1 = 999;
-					
-				if ($tipp2 < 0)
-					$tipp2 = 0;
 				
 				if ($tipp2 > 999)
 					$tipp2 = 999;
