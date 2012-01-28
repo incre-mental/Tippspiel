@@ -2,41 +2,76 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<style type="text/css">
-			.fehler {color:red}
-		</style>
-<link type="text/css" href="css/custom-theme/jquery-ui-1.8.17.custom.css" rel="Stylesheet" />	
-<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
-<script type="text/javascript">
-				$('#bname').datepicker();
-</script>
+		<link type="text/css" href="css/le-frog/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+		
 <title>Tippspiel - Registration</title>
 </head>
 
-    <body>
+    <body  class="ui-widget">
+    
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+    <div class="ui-dialog-buttonset ab-page-top-div" position="absolute" style="margin-left:30%;margin-right:30%;">
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="index.php">Home</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Tipps</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Statistik</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Impressum</a>
+    </div>
+    </div><br/>
+    
+    
     <?php
 		if (isset($_GET["fehler"]) && $_GET["fehler"]==1){
-			echo "<p class='fehler'> Registrierungsdaten nicht korrekt!!</p>";
+			echo "<div class='ui-widget'>
+					<div class='ui-state-error ui-corner-all' style='padding: 0 .7em;'> 
+						<p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span> 
+						<strong>Alert:</strong>  Registrierungsdaten nicht korrekt!!
+						</p>
+					</div>
+				</div>";
 		}elseif(isset($_GET["fehler"]) && $_GET["fehler"]==2){
-			echo "<p class='fehler'> Benutzername schon vergeben!!</p>";
+			echo "<div class='ui-widget'>
+								<div class='ui-state-error ui-corner-all' style='padding: 0 .7em;'> 
+									<p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span> 
+									<strong>Alert:</strong> Benutzername schon vergeben!!
+									</p>
+								</div>
+							</div>";			
 		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==3){
-			echo "<p class='fehler'> Passwort zu kurz!!<br/>
-					Das Passwort muss mindestens 6 Zeichen lang sein!!</p>";
+			echo "<div class='ui-widget'>
+								<div class='ui-state-error ui-corner-all' style='padding: 0 .7em;'> 
+									<p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span> 
+									<strong>Alert:</strong> Passwort zu kurz!! Das Passwort muss mindestens 6 Zeichen lang sein!!
+									</p>
+								</div>
+							</div>";
 		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==4){
-			echo "<p class='fehler'> E-Mail Account schon vorhanden!!</p>";
+			echo "<div class='ui-widget'>
+								<div class='ui-state-error ui-corner-all' style='padding: 0 .7em;'> 
+									<p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span> 
+									<strong>Alert:</strong> E-Mail Account schon vorhanden!!
+									</p>
+								</div>
+							</div>";
 		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==5){
-			echo "<p class='fehler'> Passwort Wiederholung stimmt nicht mit dem Passwort Ÿberein!!</p>";
+			echo "<div class='ui-widget'>
+								<div class='ui-state-error ui-corner-all' style='padding: 0 .7em;'> 
+									<p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span> 
+									<strong>Alert:</strong> Passwort Wiederholung stimmt nicht mit dem Passwort Ÿberein!!
+									</p>
+								</div>
+							</div>";		
 		}elseif (isset($_GET["fehler"]) && $_GET["fehler"]==6){
-				echo "<p class='fehler'> Fehler bei der Registrierung!!</p>";
+				echo "<div class='ui-widget'>
+									<div class='ui-state-error ui-corner-all' style='padding: 0 .7em;'> 
+										<p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span> 
+										<strong>Alert:</strong> Fehler bei der Registrierung!!
+										</p>
+									</div>
+								</div>";
 		}
 	?>
-	<ul id="buttonBar" class="ui-reset ui-clearfix ui-component ui-hover-state">
-	<li><a href="#" class="ui-default-state">Home</a></li>
-	<li><a href="#" class="ui-default-state">Tipps</a></li>
-	<li><a href="#" class="ui-default-state">Statistik</a></li>
-	<li><a href="#" class="ui-default-state">Impressum</a></li>
-	</ul>
 	
 	<form method="post" action="regaction.php">
 	Benutzername*<br/>
@@ -57,7 +92,7 @@
 	Passwort Wiederholung*<br/>
 	<input type="password" name="passwortw" size="20" />
 	<br/>
-	<input class="ui-default-state" type="submit" value="Registrieren" />
+	<input class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit" value="Registrieren" />
 	</form>
     </body>
 </html>
