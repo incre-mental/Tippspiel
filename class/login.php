@@ -1,7 +1,4 @@
 <?php
-
-session_start ();
-
 class login{
 
 	private $id = NULL;
@@ -138,6 +135,11 @@ a { color: #15C }
 		
 		$_SESSION['userid'] = 0;
 	}
+	
+	public function getUsername(){
+		return $this->name;
+	}
+	
 }
 
 ?>

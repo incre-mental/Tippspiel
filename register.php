@@ -2,11 +2,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style type="text/css">
+			.fehler {color:red}
+		</style>
+<link type="text/css" href="css/custom-theme/jquery-ui-1.8.17.custom.css" rel="Stylesheet" />	
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript">
+				$('#bname').datepicker();
+</script>
 <title>Tippspiel - Registration</title>
 </head>
-<style type="text/css">
-.fehler {color:red}
-</style>
+
     <body>
     <?php
 		if (isset($_GET["fehler"]) && $_GET["fehler"]==1){
@@ -24,9 +31,16 @@
 				echo "<p class='fehler'> Fehler bei der Registrierung!!</p>";
 		}
 	?>
+	<ul id="buttonBar" class="ui-reset ui-clearfix ui-component ui-hover-state">
+	<li><a href="#" class="ui-default-state">Home</a></li>
+	<li><a href="#" class="ui-default-state">Tipps</a></li>
+	<li><a href="#" class="ui-default-state">Statistik</a></li>
+	<li><a href="#" class="ui-default-state">Impressum</a></li>
+	</ul>
+	
 	<form method="post" action="regaction.php">
 	Benutzername*<br/>
-	<input type="text" name="bname" size="30" />
+	<input type="text" name="bname" size="30" id="bname"/>
 	<br/>
 	E-Mail*<br/>
 	<input type="text" name="email" size="30" />
@@ -43,7 +57,7 @@
 	Passwort Wiederholung*<br/>
 	<input type="password" name="passwortw" size="20" />
 	<br/>
-	<input type="submit" value="Registrieren" />
+	<input class="ui-default-state" type="submit" value="Registrieren" />
 	</form>
     </body>
 </html>
