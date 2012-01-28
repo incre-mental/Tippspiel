@@ -87,6 +87,14 @@ a { color: #15C }
 </style>
 <body>
 <div class= "head-bar"</div>
+
+<ul id="buttonBar" class="ui-reset ui-clearfix ui-component ui-hover-state">
+	<li><a href="#" class="ui-default-state">Home</a></li>
+	<li><a href="#" class="ui-default-state">Tipps</a></li>
+	<li><a href="#" class="ui-default-state">Statistik</a></li>
+	<li><a href="#" class="ui-default-state">Impressum</a></li>
+</ul>
+
 <a id="register-login" href="register.php">Neues Konto erstellen</a>
 
 <form method="post" action="">
