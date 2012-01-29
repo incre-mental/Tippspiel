@@ -2,7 +2,7 @@
 
 include_once 'class/rankingclass.php';
 include_once 'smarty_config.php';
-
+include_once 'header.php';
 include_once 'phasenmenu.php';
 
 $begegnung_array = Array ();

@@ -1,9 +1,11 @@
 <?php 
-  include_once 'class/phase.php';
+	#include_once 'logintemplate.php';
+  	include_once 'class/phase.php';
 	include_once 'class/begegnung.php';
 	include_once 'class/tipp.php';
 	include_once 'smarty_config.php';
 	
+	include_once 'header.php';
 	include_once 'phasenmenu.php';
 	
 	$begegnung_array = Array ();

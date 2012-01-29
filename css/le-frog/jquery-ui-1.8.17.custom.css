@@ -12,7 +12,43 @@
 ----------------------------------*/
 .fehler {color:red}
 .ab-page-top-div {padding:10px}
- 
+
+/* PF CSS
+----------------------------------*/
+.GruppenMenu {
+  width:10em;
+  	border: 2px solid #72b42d;
+	/* Old PF CSS
+	border-width:1px;
+	border-style:solid;
+	border-radius:10px;*/
+	float:left;
+	height:90%;
+	margin-right:10px;
+}
+
+.GruppenMenuEintrag {
+  height:3em;
+	padding-left:2px;
+	cursor:pointer;
+}
+
+.GruppenMenuUntereintrag {
+  height:3em;
+	padding-left:10px;
+	display:none;
+	cursor:pointer;
+}
+
+.tipp1{
+  width:3em;
+	text-align:right;
+}
+
+.tipp2{
+  width:3em;
+}
+
 /* Layout helpers
 ----------------------------------*/
 .ui-helper-hidden { display: none; }

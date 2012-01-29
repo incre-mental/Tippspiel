@@ -55,7 +55,7 @@ class login{
 					  LIMIT 1;';
 			
 			$this->dbconnection->query($query);	
-      $_SESSION['userid'] = $this->id;			
+      		$_SESSION['userid'] = $this->id;			
 			
 			return true;
 		}
@@ -74,32 +74,10 @@ class login{
 	}
 	
 	public function showLogin(){
+	include_once "header.php";
 		echo '		
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Tippspiel AG</title>
-</head>
-<style type="text/css">
-.head-bar { background-color:#E5E5E5; height:70px ; text-align:right}
-.signup { margin:28px 0 0 0; float:right;font-weight:bold }
-a { color: #15C }
-</style>
-<body class="ui-widget">
-
-   <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-    <div class="ui-dialog-buttonset ab-page-top-div" position="absolute" style="margin-left:33%;margin-right:33%;">
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="index.php">Home</a>
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Tipps</a>
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Statistik</a>
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="#">Impressum</a>
-    </div>
-    </div>
-    <br/>
-
 <form method="post" action="">
-<fieldset style="width:33%;text-align:right;left:20%;">
+<fieldset style="width:33%;text-align:right;left:20%; border: 2px solid #72b42d;">
  <legend>Benutzeranmeldung</legend>
 	<br />
     <label for="textinput1">Benutzername</label>
@@ -108,8 +86,8 @@ a { color: #15C }
     <label>Passwort</label>
     <input type="password" name="userpass" id="textinput2">
     <br /><br />
-  	<button name="login" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit"> Anmelden </button><br/>
-	Noch kein Mitglied? <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="register.php">Registrieren</a>
+  	<button name="login" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit" style="width:150px; padding-top:2px; padding-bottom:2px"> Anmelden </button><br/>
+	Noch kein Mitglied? <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false" href="register.php" style="width:150px; padding-top:2px; padding-bottom:2px">Registrieren</a>
 </fieldset>
 </form>
 </body>	

@@ -1,5 +1,5 @@
 {* Smarty *}
-
+	
   {include file='phasenmenu.tpl'}
 	
 	<div>
@@ -37,8 +37,8 @@
 			</table>
 			
 			{if (sizeof ($begegnungen) > 0)}
-			  <input type="submit" value="Speichern"/>
-			  <input type="button" value="Verwerfen" onClick="window.location.href=window.location.href"/>
+			  <input type="submit" style="width:150px; padding-top:2px; padding-bottom:2px" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Speichern"/>
+			  <input type="button" style="width:150px; padding-top:2px; padding-bottom:2px" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" value="Verwerfen" onClick="window.location.href=window.location.href"/>
 			{else}
 			  Keine Begegnungen vorhanden!
 			{/if}
@@ -46,3 +46,5 @@
 		
 		<div id="usertipps"></div>
 	</div>
+</body>	
+</html>

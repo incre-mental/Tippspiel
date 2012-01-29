@@ -1,3 +1,7 @@
+<?php 
+include_once "header.php";
+?>
+<!--
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
@@ -20,7 +24,7 @@
     </div>
     </div><br/>
     
-    
+-->    
     <?php
 		if (isset($_GET["fehler"]) && $_GET["fehler"]==1){
 			echo "<div class='ui-widget'>
@@ -58,7 +62,7 @@
 			echo "<div class='ui-widget'>
 								<div class='ui-state-error ui-corner-all' style='padding: 0 .7em;'> 
 									<p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span> 
-									<strong>Alert:</strong> Passwort Wiederholung stimmt nicht mit dem Passwort Ÿberein!!
+									<strong>Alert:</strong> Passwort Wiederholung stimmt nicht mit dem Passwort ï¿½berein!!
 									</p>
 								</div>
 							</div>";		
@@ -72,7 +76,7 @@
 								</div>";
 		}
 	?>
-	
+	<h1>Registrierung</h1><br/>
 	<form method="post" action="regaction.php">
 	Benutzername*<br/>
 	<input type="text" name="bname" size="30" id="bname"/>
@@ -92,7 +96,7 @@
 	Passwort Wiederholung*<br/>
 	<input type="password" name="passwortw" size="20" />
 	<br/>
-	<input class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit" value="Registrieren" />
+	<input class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="submit" style="width:150px; padding-top:2px; padding-bottom:2px" value="Registrieren" />
 	</form>
     </body>
 </html>
