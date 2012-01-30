@@ -7,6 +7,8 @@
 	private $names = array();
 	private $punkte = 0;
 	private $ranking = 0;
+	private $usernames = "";
+	
   	
 		public function userrank () { //deprecated! wird nicht mehr genutzt 
 		  $sqluser = 'Select ID, Username from users order by ID ASC';
@@ -36,6 +38,8 @@
 		
 		public function ausgaberanking($smarty) 	{			
 			//echo "<table>";
+			$usernames = "";
+			$punkte = 0;
 			while ($row = $this->ranking->fetchRow()) {
 				$usernames[] = $row["username"];
 				$punkte[] = $row["sum(t.Punkte)"];
