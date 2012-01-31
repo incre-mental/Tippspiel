@@ -4,7 +4,6 @@
 	
 	<div>
 	  <h2>{$phase->getName ()}</h2>
-		
 		<form method = "POST" action="tippspeichern.php">
 			<table>
 				{foreach key=i item=begegnung from=$begegnungen}
@@ -29,7 +28,7 @@
 						<td>{{$begegnung->getTimestamp ()}|date_format:"am %d.%m.%Y um %H:%M Uhr"}</td>
 						<td>
 						  {if $begegnung->getTimestamp () < time()}
-						    <input type="button" class="UserTipps" value="User-Tipps" name="{$begegnung->getId ()}"/>
+						    <input type="button" style="width:150px; padding-top:2px; padding-bottom:2px" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only UserTipps" value="User-Tipps" name="{$begegnung->getId ()}"/>
 							{/if}
 						</td>
 					</tr>
