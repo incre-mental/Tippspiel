@@ -1,4 +1,7 @@
 <?php
+
+session_start ();
+
 class login{
 
 	private $id = NULL;
@@ -55,7 +58,7 @@ class login{
 					  LIMIT 1;';
 			
 			$this->dbconnection->query($query);	
-      		$_SESSION['userid'] = $this->id;			
+      $_SESSION['userid'] = $this->id;			
 			
 			return true;
 		}
@@ -117,7 +120,6 @@ class login{
 	public function getUsername(){
 		return $this->name;
 	}
-	
 }
 
 ?>
