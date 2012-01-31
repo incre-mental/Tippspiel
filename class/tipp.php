@@ -11,7 +11,7 @@
 		private $punkte    = 0;
 	
 	  public function __construct () {
-		  $this->db     = new DB_Tipp ();
+		  $this->db = new DB_Tipp ();
 			
 			if (isset ($_SESSION['userid']))
 			  $this->userId = $_SESSION['userid'];
