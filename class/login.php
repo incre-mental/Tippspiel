@@ -75,7 +75,7 @@ class login{
 	
 	public function showLogin(){
 	include_once "header.php";
-		echo '		
+		echo '
 <form method="post" action="">
 <fieldset style="width:33%;text-align:right;left:20%; border: 2px solid #72b42d;">
  <legend>Benutzeranmeldung</legend>

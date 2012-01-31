@@ -12,6 +12,17 @@
 ----------------------------------*/
 .fehler {color:red}
 .ab-page-top-div {padding:10px}
+#footer {
+    background-color: #CECBCE;
+    color: #808AC8;
+    float: left;
+    font-size: 10px;
+    height: 10%;
+    margin-top: 80%;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    width: 100%;
+}
 
 /* PF CSS
 ----------------------------------*/
