@@ -5,7 +5,7 @@ include_once 'logintemplate.php';
 <?php
 include_once 'header.php';
 ?>
-
+<div style="margin-left:95%"><?php $mylogin->showLogout();?></div>
 <h1>Willkommen <?php echo htmlspecialchars($_GET['username']);?>!</h1>
 <h2></h2>Die geheime Willkommen-Seite.</h2><br />
 <br />
@@ -13,6 +13,6 @@ include_once 'header.php';
 <ul>
 	<li><a href="index.php<?php session::showLink(true);?>">Startseite</a></li>
 	<li><a href="tippeingabe.php<?php session::showLink(true);?>">Tippeingabe</a></li>
-	<li><?php $mylogin->showLogout();?></li>
+	<!--<li><?php $mylogin->showLogout();?></li>-->
 </ul>
 
