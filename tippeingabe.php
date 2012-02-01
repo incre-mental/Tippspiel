@@ -7,7 +7,9 @@
 	
 	include_once 'header.php';
 	
-	echo '<div style="margin-left:95%">'.$mylogin->showLogout().'</div>';
+	echo '<div style="margin-left:95%">';
+	$mylogin->showLogout();
+	echo '</div>';
 	
 	include_once 'phasenmenu.php';
 		
