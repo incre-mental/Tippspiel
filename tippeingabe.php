@@ -1,13 +1,13 @@
 <?php 
-	#include_once 'logintemplate.php';
-  	include_once 'class/phase.php';
+	include_once 'logintemplate.php';
+  include_once 'class/phase.php';
 	include_once 'class/begegnung.php';
 	include_once 'class/tipp.php';
 	include_once 'smarty_config.php';
 	
 	include_once 'header.php';
 	include_once 'phasenmenu.php';
-	
+		
 	$begegnung_array = Array ();
 	$tipp  = new Tipp ();
   $phase = new Phase ();
@@ -19,6 +19,7 @@
 	$phase->get ();
 	
 	$smarty->assign ('phase', $phase);
+	$smarty->assign ('sid', $_GET['sid']);
 	
 	if (sizeof ($phase->getChilds ()) > 0) {
 		foreach ($phase->getChilds () As $childphase) {

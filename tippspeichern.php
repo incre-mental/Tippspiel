@@ -1,9 +1,7 @@
 <?php 
   include_once 'class/begegnung.php';
 	include_once 'class/tipp.php';
-	
-  session_start ();
-	
+		
   $begegnungen       = unserialize ($_SESSION ['tippeingabe_begegnungen']);
 	$phase             = $_SESSION ['tippeingabe_phase'];
 	$current_timestamp = time();
@@ -41,6 +39,6 @@
 			}
 		}
 	}
-
-	header ("Location:tippeingabe.php?phase_id=$phase");
+	
+	header ("Location:tippeingabe.php?phase_id=$phase" . "&sid=" . $_GET['sid']);
 ?>
