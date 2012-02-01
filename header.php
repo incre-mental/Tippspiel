@@ -17,10 +17,18 @@ echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <body class="ui-widget">
    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="width:100%">
     <div class="ui-dialog-buttonset ab-page-top-div" position="absolute" style="padding-left: 20%; padding-right: 20%;">
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="index.php">Home</a>
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="tippeingabe.php">Tipps</a>
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="ranking.php">Statistik</a>
-    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="impressum.php">Impressum</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="index.php';
+		echo session::showLink(true);
+		echo '">Home</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="tippeingabe.php';
+		echo session::showLink(true);
+		echo '">Tipps</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="ranking.php';
+		echo session::showLink(true);
+		echo '">Statistik</a>
+    <a class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" style="width:24%" role="button" aria-disabled="false" href="impressum.php';
+		echo session::showLink(true);
+		echo '">Impressum</a>
     </div>
     </div>
     <br/>';?>
