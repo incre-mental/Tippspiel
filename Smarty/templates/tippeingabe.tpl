@@ -1,10 +1,9 @@
 {* Smarty *}
-	
   {include file='phasenmenu.tpl'}
 	
 	<div>
-	  <h2>{$phase->getName ()}</h2>
-		<form method = "POST" action="tippspeichern.php">
+  	<h2>{$phase->getName ()}</h2>
+		<form method = "POST" action="tippspeichern.php?sid={$sid}">
 			<table>
 				{foreach key=i item=begegnung from=$begegnungen}
 					<tr>
@@ -42,7 +41,6 @@
 			  Keine Begegnungen vorhanden!
 			{/if}
 		</form>
-		
 		<div id="usertipps"></div>
 	</div>
 </body>	

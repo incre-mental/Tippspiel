@@ -37,7 +37,7 @@ $(function() {
 //******************************************************************************
 	$(".GruppenMenuUntereintrag").click(function()
 	{
-		window.location.href = window.location.pathname + "?phase_id=" + $(this).get(0).id;
+		window.location.href = window.location.pathname + "?phase_id=" + $(this).get(0).id + "&sid=" + getSid ();
 	});
 //******************************************************************************
 
@@ -63,7 +63,7 @@ $(function() {
 			}
 		}
 		else
-		  window.location.href = window.location.pathname + "?phase_id=" + id; 
+		  window.location.href = window.location.pathname + "?phase_id=" + id + "&sid=" + getSid (); 
 	});
 //******************************************************************************
 
@@ -100,5 +100,17 @@ $(function() {
 	$(".cancel").click(function(){
 	  window.location.href=window.location.href;
 	});
+	
+	function getSid(q,s) { 
+     s = s ? s : window.location.search; 
+		 
+     var re = new RegExp('sid=([a-f0-9]+-[a-f0-9]+)', 'i'); 
+		 
+     s = s.match(re); 
+     if (s)
+       return s[1];
+     else 
+       return undefined;		 
+	}
 });
 
