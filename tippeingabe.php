@@ -6,6 +6,9 @@
 	include_once 'smarty_config.php';
 	
 	include_once 'header.php';
+	
+	echo '<div style="margin-left:95%">'.$mylogin->showLogout().'</div>';
+	
 	include_once 'phasenmenu.php';
 		
 	$begegnung_array = Array ();
