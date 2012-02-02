@@ -73,6 +73,10 @@ class login{
 		
 		$this->dbconnection->query($query);
 		
+		if ($row = $this->dbconnection->fetchRow ()){
+		  $_SESSION['userid'] = $row['ID']; 
+		}
+		
 		return ($this->dbconnection->count()!==1) ? false : true;
 	}
 	
