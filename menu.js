@@ -100,9 +100,12 @@ $(function() {
 	$(".cancel").click(function(){
 	  window.location.href=window.location.href;
 	});
-	
+//******************************************************************************
+
+
+//******************************************************************************	
 	function getSid() { 
-     var s = s ? s : window.location.search; 
+     var s  = window.location.search; 
      var re = new RegExp('sid=([a-f0-9]+-[a-f0-9]+)', 'i'); 
 		 
      s = s.match(re); 

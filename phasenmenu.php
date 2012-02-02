@@ -1,9 +1,7 @@
 <?php 
   include_once 'class/phase.php';
 	include_once 'smarty_config.php';
-	
-	//session_start ();
-	
+		
 	if (isset ($_SESSION ['phasenmenu'])) {
 		$phasen = unserialize ($_SESSION ['phasenmenu']);
 	}
@@ -15,6 +13,4 @@
 	}
 	
 	$smarty->assign ('phasen', $phasen);
-	//$smarty->display ('phasenmenu.tpl');
-
 ?>
