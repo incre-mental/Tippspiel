@@ -5,7 +5,7 @@
   class DB_Ranking extends DB_MySQL {
 	private $ids = array();
 	private $names = array();
-	private $punkte = 0;
+	private $punkte = array();
 	private $ranking = 0;
 	private $usernames = "";
 	
@@ -39,7 +39,8 @@
 		public function ausgaberanking($smarty) 	{			
 			//echo "<table>";
 			$usernames = "";
-			$punkte = 0;
+			//$punkte = array();
+			global $punkte;
 			while ($row = $this->ranking->fetchRow()) {
 				$usernames[] = $row["username"];
 				$punkte[] = $row["sum(t.Punkte)"];
