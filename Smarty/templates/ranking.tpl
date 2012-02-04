@@ -3,9 +3,6 @@
   {include file='phasenmenu.tpl'}
 	
 	<div>
-		{if ($phase->getName () == "")}
-			 Keine Begegnungen vorhanden!
-		{else}
 				 
 			
 	  <h2>{$phase->getName ()}</h2>
@@ -15,11 +12,11 @@
 			{if ($username == $aktuser)}
 			<tr><td><b>{$i+1}</b></td><td><b>{$username}</b></td><td><b>{$punkten.$i}</b></td></tr>
 			{else}
-			<tr><td>{$i+1}</td><td>{$username}</td><td>{$punkten.$i}</td></tr>
+			<tr><td><b>{$i+1}</b></td><td><b>{$username}</b></td><td><b>{$punkten.$i}</b></td></tr>
 			{/if}
 			{/foreach}	
 		</table>
-	{/if}
+	
 	</div>
 </body>	
 </html>	

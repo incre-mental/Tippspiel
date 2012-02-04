@@ -6,6 +6,8 @@
 	private $ids = array();
 	private $names = array();
 	private $punkte = array();
+	private $row_tipps = array();
+	private $r = array();
 	private $ranking = 0;
 	private $usernames = "";
 	
@@ -49,6 +51,54 @@
 				$smarty->assign ('punkten', $punkte);
 		}
 		
+		public function punktespeichern() {
+			
+			$sql = 'Select TippM1, TippM2, User_ID, begegnung.timestamp, begegnung.id from tippspiel.tipp 
+					inner join begegnung on 
+					tipp.begegnung_id = begegnung.id 
+					Where begegnung.timestamp < '.(time()-9900);
+			//echo $sql;
+			
+			$ergebnis = $this->query($sql);
+			while($re = mysql_fetch_array($ergebnis, MYSQL_NUM)) {
+			
+				array_push($this->row_tipps,$re);
+			
+			}
+			foreach($this->row_tipps as $rt) {
+				$r = array();
+				$sql = ' Select Tore_Mannschaft_1, Tore_Mannschaft_2 from tippspiel.begegnung where ID = '.$rt[4];
+			//	echo $sql."<br>";
+				$ergebnis = $this->query($sql);
+				while($re = mysql_fetch_array($ergebnis, MYSQL_NUM)) {
+						
+					array_push($r,$re);
+						
+				}		
+				//echo $r[0][0]."  ".$rt[0]."<br>";
+				//echo $r[0][1]."  ".$rt[1]."<br>";
+				
+				
+				if (($r[0][0]==$rt[0]) AND ($r[0][1]==$rt[1])) {
+					$query = 'UPDATE  `tippspiel`.`tipp` SET  `Punkte` =  \'3\' WHERE  `tipp`.`Begegnung_ID` ='.$rt[4].' AND tipp.user_id = '.$rt[2];
+						//echo "3 Punkte<br>";
+				}
+				elseif (($r[0][0]-$r[0][1])==($rt[0]-$rt[1])) {
+					$query = 'UPDATE  `tippspiel`.`tipp` SET  `Punkte` =  \'2\' WHERE  `tipp`.`Begegnung_ID` ='.$rt[4].' AND tipp.user_id = '.$rt[2];
+						//echo "2 Punkte<br>";
+				}
+				elseif ((($r[0][0]>$r[0][1]) AND ($rt[0]>$rt[1])) OR (($r[0][0]<$r[0][1]) AND ($rt[0]<$rt[1]))) {
+					$query = 'UPDATE  `tippspiel`.`tipp` SET  `Punkte` =  \'1\' WHERE  `tipp`.`Begegnung_ID` ='.$rt[4].' AND tipp.user_id = '.$rt[2];
+						echo "1 Punkt<br>";
+				}else {
+					$query = "";
+					//	echo "0 Puntke<br>";
+				}
+				echo $query;
+			$this->query($query);
+			}
+			
+		}
 		
 	  public function getIds () {
 		  return($this->ids);
