@@ -32,5 +32,6 @@ $rank->aufbauranking($smarty, $_GET["phase_id"]);
 //$rank->ausgaberanking();
 
 $smarty->display ('ranking.tpl');
+$rank->punktespeichern();
 
 ?>
