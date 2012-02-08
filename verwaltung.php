@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
 <?php
-include_once 'logintemplate.php';
+//include_once 'logintemplate.php';
 ?>
 <h2>Verwaltung</h2>
 Die geheime Verwaltung.<br />

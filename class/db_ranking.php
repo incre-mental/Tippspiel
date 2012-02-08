@@ -24,7 +24,7 @@
 		
 		public function aufbauranking ($smarty, $phase="") {
 				
-		  	$sql = 'Select users.id, users.username, sum(t.Punkte) from tipp as t inner join users on users.id = t.user_id group by users.id';
+	  	$sql = 'Select users.id, users.username, sum(t.Punkte) from tipp as t inner join users on users.id = t.user_id group by users.id';
 
 		  if ($phase!=="") $sql = '
 		  	Select users.id, users.username, sum(t.Punkte) from tipp as t 
@@ -36,12 +36,8 @@
 			$this->ausgaberanking($smarty);
 		}
 
-		
-		
 		public function ausgaberanking($smarty) 	{			
-			//echo "<table>";
 			$usernames = "";
-			//$punkte = array();
 			global $punkte;
 			while ($row = $this->ranking->fetchRow()) {
 				$usernames[] = $row["username"];
@@ -68,15 +64,13 @@
 			foreach($this->row_tipps as $rt) {
 				$r = array();
 				$sql = ' Select Tore_Mannschaft_1, Tore_Mannschaft_2 from tippspiel.begegnung where ID = '.$rt[4];
-			//	echo $sql."<br>";
 				$ergebnis = $this->query($sql);
 				while($re = mysql_fetch_array($ergebnis, MYSQL_NUM)) {
 						
 					array_push($r,$re);
 						
 				}		
-				//echo $r[0][0]."  ".$rt[0]."<br>";
-				//echo $r[0][1]."  ".$rt[1]."<br>";
+				
 				
 				
 				if (($r[0][0]==$rt[0]) AND ($r[0][1]==$rt[1])) {
@@ -94,7 +88,7 @@
 					$query = "";
 					//	echo "0 Puntke<br>";
 				}
-				echo $query;
+				//echo $query;
 			$this->query($query);
 			}
 			

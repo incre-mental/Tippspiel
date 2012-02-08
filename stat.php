@@ -15,7 +15,7 @@ function query($sql) {
 };
 
 
-
+echo time();
 
 //$anfrage = 'SELECT * FROM `users` WHERE `email` = "'.addslashes($_POST['email']).'"';
 
@@ -30,28 +30,21 @@ $r = query('Select Tore_Mannschaft_1, Tore_Mannschaft_2 from tippspiel.begegnung
 
 $row_tipps = query('Select TippM1, TippM2, User_ID from tippspiel.tipp where Begegnung_ID = '.$begegnung);
 
-		echo "<pre>";
-		foreach($r as $row) {
-			print_r($row);
-		}
+
 		foreach($row_tipps as $rt) {
 			echo $r[0][0]."  ".$rt[0]."<br>";
 			echo $r[0][1]."  ".$rt[1]."<br>";
 			if (($r[0][0]==$rt[0]) AND ($r[0][1]==$rt[1])) {
-				echo "3 Punkte<br>";
+			//	echo "3 Punkte<br>";
 			}
 			elseif (($r[0][0]-$r[0][1])==($rt[0]-$rt[1])) {
-				echo "2 Punkte<br>";
+			//	echo "2 Punkte<br>";
 			}
-			elseif ((($r[0][0]>$r[0][1]) AND ($rt[0]>$rt[1])) OR (($r[0][0]<$r[1]) AND ($rt[0][0]<$rt[1]))) {
-				echo "1 Punkt<br>";
+			elseif ((($r[0][0]>$r[0][1]) AND ($rt[0]>$rt[1])) OR (($r[0][0]<$r[0][1]) AND ($rt[0]<$rt[1]))) {
+			//	echo "1 Punkt<br>";
 			}else {
-				echo "0 Puntke<br>";
+			//	echo "0 Puntke<br>";
 			}
-			
-		print_r($rt);
 		}
-		echo "</pre>";
-
 
 
